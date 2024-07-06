@@ -45,44 +45,60 @@ export default function Home() {
           <div className="h-full items-center flex ml-auto justify-end">
             <div className="flex mr-1">
               <span className="block">
-                <Link href="/LogIn">
-                  <div className="flex p-2 px-4 relative cursor-pointer max-w-full whitespace-nowrap no-underline rounded-md ml-auto mr-1">
-                    Log in
+                <Link href="/CreatePost">
+                  <div className="p-2 text-blue-600 border border-blue-600 rounded-md mx-auto my-0 cursor-pointer hover:bg-blue-600 hover:text-white hover:border-transparent hover:underline">
+                    Create Post
                   </div>
                 </Link>
               </span>
-              <Link href="/CreateAccount">
-                <div className="p-2 text-blue-600 border border-blue-600 rounded-md mx-auto my-0 cursor-pointer hover:bg-blue-600 hover:text-white hover:border-transparent hover:underline">
-                  Create account
+              <Link
+                href="/notifications"
+                aria-label="Notifications"
+                className="mx-1 p-2 inline-block bg-transparent rounded-md cursor-pointer outline-none no-underline text-gray-800 max-w-full relative"
+              >
+                <div
+                  id="notifications-link"
+                  className="flex items-center justify-center"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    role="img"
+                    aria-labelledby="a5cdl52ripfiql0xj98trcnlx8fltkkk"
+                    className="text-current"
+                  >
+                    <title id="a5cdl52ripfiql0xj98trcnlx8fltkkk">
+                      Notifications
+                    </title>
+                    <path d="M20 17h2v2H2v-2h2v-7a8 8 0 1116 0v7zm-2 0v-7a6 6 0 10-12 0v7h12zm-9 4h6v2H9v-2z"></path>
+                  </svg>
+                  <span className="hidden" id="notifications-number"></span>
                 </div>
               </Link>
+              <div className="radius-full p-1 ml-1 mr-1">
+                <button
+                  type="button"
+                  className="p-1 rounded-full text-center cursor-pointer border-none overflow-wrap-normal bg-transparent text-gray-800 relative inline-block"
+                  aria-label="Navigation menu"
+                  aria-expanded="false"
+                >
+                  <span className="inline-block rounded-full relative bg-gray-800 w-8 h-8 overflow-hidden align-middle">
+                    <img
+                      className="w-full h-full inline-block rounded-full align-bottom"
+                      alt=""
+                      src="https://media.dev.to/cdn-cgi/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F1380834%2F4bfff70a-0fd0-40bb-9ae4-707095144b98.png"
+                    />
+                  </span>
+                </button>
+              </div>
             </div>
           </div>
         </nav>
       </header>
       <section className="flex justify-between w-screen mx-auto p-2">
         <aside className="max-w-[17rem] p-4 box-border flex-1 block w-[280px] ml-[0.4rem] mr-[0.4rem]">
-          <div className="p-4 border border-gray-200 rounded-md bg-white">
-            <h2 className="block text-[1.5em] mt-[0.83em] mb-[1.83em] font-bold leading-[1.25]">
-              DEV Community is a community of 1,258,580 amazing developers
-            </h2>
-            <p className="block my-4 mx-0 mb-4 text-gray-700">
-              We re a place where coders share, stay up-to-date and grow their
-              careers.
-            </p>
-            <div>
-              <Link href="/CreateAccount">
-                <div className="box-border p-2 border border-blue-600 no-underline rounded-md bg-transparent text-blue-600 outline-none text-center inline-flex relative mb-1 w-full justify-center cursor-pointer">
-                  Create account
-                </div>
-              </Link>
-              <Link href="/LogIn">
-                <div className="flex py-2 px-4 bg-transparent relative rounded-md font-inherit cursor-pointer outline-none no-underline text-gray-400 max-w-full justify-center">
-                  Log in
-                </div>
-              </Link>
-            </div>
-          </div>
           <Aside />
           <nav className="block mt-4 mb-4">
             <h2 className="block pl-3 pt-4 pb-4 text-2xl font-bold mb-3 mt-3 mx-0">
@@ -220,10 +236,8 @@ export default function Home() {
           <section className="rounded bg-white">
             <div>
               <div className="p-3 border-b border-gray-200">
-                <h3>
-                  <a href="#" className="font-bold">
-                    #discuss
-                  </a>
+                <h3 className="text-xl leading-6 font-bold text-gray-900">
+                  Active discussions
                 </h3>
                 <p className="text-xs">
                   Discussion threads targeting the whole community
@@ -312,7 +326,7 @@ export default function Home() {
               </div>
               <div className="p-3 border-b border-gray-200">
                 <a href="">
-                  So I completed Replit's free 100 Days of Python course
+                  So I completed Replits free 100 Days of Python course
                 </a>
               </div>
               <div className="p-3 border-b border-gray-200">
