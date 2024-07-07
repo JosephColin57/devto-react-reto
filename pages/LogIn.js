@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import SignupButtons from "@/Components/SignupButtons";
 import { LoginUser } from "@/lib/api";

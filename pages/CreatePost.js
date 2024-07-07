@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { CreateNewPost } from "@/lib/api";
 import { useState } from "react";
 import { Toaster, toast } from "sonner";

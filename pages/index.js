@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Aside from "../Components/Aside";
 import Other from "../Components/Other";
 import SocialMedia from "../Components/SocialMedia";
