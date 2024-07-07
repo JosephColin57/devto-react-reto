@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Reactions from "./Reactions";
 import { getPost } from "@/lib/api";
 import { useEffect, useState } from "react";
