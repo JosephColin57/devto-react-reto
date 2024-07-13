@@ -6,6 +6,7 @@ import PopularTags from "../Components/PopularTags";
 import Link from "next/link";
 import MainPost from "@/Components/MainPost";
 import SubContainer from "@/Components/SubContainer";
+import MenuImagen from "@/Components/MenuLogueado";
 
 export default function Home() {
   return (
@@ -86,11 +87,7 @@ export default function Home() {
                   aria-expanded="false"
                 >
                   <span className="inline-block rounded-full relative bg-gray-800 w-8 h-8 overflow-hidden align-middle">
-                    <img
-                      className="w-full h-full inline-block rounded-full align-bottom"
-                      alt=""
-                      src="https://media.dev.to/cdn-cgi/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F1380834%2F4bfff70a-0fd0-40bb-9ae4-707095144b98.png"
-                    />
+                    <MenuImagen />
                   </span>
                 </button>
               </div>

@@ -7,10 +7,16 @@ export default function SubContainer() {
 
     const [posts, setPosts] = useState([]);
     useEffect(() => {
-        getPost()
-        .then((data) => setPosts(data))
+      getPost()
+        .then((data) => {
+          if (data.length > 1) {
+            setPosts(data.reverse().slice(1)); // Excluye el último elemento después de invertir
+          } else {
+            setPosts([]); // Si solo hay un post, establece el estado a un arreglo vacío
+          }
+        })
         .catch((error) => console.error(error));
-    },[])
+    }, []);
     
     if (!posts.length) {
         return <div>No hay posts para mostrar</div>;

@@ -2,10 +2,11 @@
 import { CreateNewPost } from "@/lib/api";
 import { useState } from "react";
 import { Toaster, toast } from "sonner";
-
-
+import { useRouter } from 'next/router';
 
 export default function CreatePost() {
+  const router = useRouter();
+
   const [formData, setFormData] = useState({
     image: "",
     title: "",
@@ -28,6 +29,7 @@ export default function CreatePost() {
         body: "",
         date: "",
       });
+      router.push("/HomeLogueado")
     } catch (error) {
       console.error("Error al enviar el formulario:", error);
       toast.error("Error al registrar");
@@ -37,10 +39,7 @@ export default function CreatePost() {
     return (
       <main>
         <Toaster />
-        <form
-          className="max-w-screen-xl grid px-4 h-screen gap-x-4 mx-auto text-base grid-cols-[64px_7fr_3fr] grid-rows-[min-content_1fr_min-content]"
-          onSubmit={handleSubmit}
-        >
+        <form className="max-w-screen-xl grid px-4 h-screen gap-x-4 mx-auto text-base grid-cols-[64px_7fr_3fr] grid-rows-[min-content_1fr_min-content]">
           <div className="flex items-center h-14 col-span-2">
             <span className="block mr-4">
               <img
@@ -81,6 +80,12 @@ export default function CreatePost() {
                 title="Close the editor"
                 aria-label="Close the editor"
                 className="p-2"
+                onClick={() => {
+                  const isConfirmed = confirm("¿Estás seguro de querer salir?");
+                  if (isConfirmed) {
+                    router.push("/HomeLogueado");
+                  }
+                }}
               >
                 <svg
                   width="24"
@@ -169,8 +174,8 @@ export default function CreatePost() {
                     co-workers or local communities.
                   </li>
                   <li>
-                    Ask people to leave questions for you in the comments. Its
-                    a great way to spark additional discussion describing
+                    Ask people to leave questions for you in the comments. Its a
+                    great way to spark additional discussion describing
                     personally why you wrote it or why people might find it
                     helpful.
                   </li>
@@ -182,6 +187,7 @@ export default function CreatePost() {
             <button
               type="button"
               className="relative inline-block p-2 rounded-md font-inherit text-center cursor-pointer border-none bg-[rgb(59,72,233)] text-white font-medium whitespace-nowrap mr-2"
+              onClick={handleSubmit}
             >
               Publish
             </button>

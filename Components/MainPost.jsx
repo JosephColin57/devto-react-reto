@@ -5,15 +5,22 @@ import { getPost } from "@/lib/api";
 import { useEffect, useState } from "react";
 
 
+
 export default function MainPost() {
 
     const [posts, setPosts] = useState([]); // Inicializa el estado de posts como un array vacío
     
     useEffect(() => {
-        getPost()
-        .then((data) => setPosts(data))
+      getPost()
+        .then((data) => {
+          if (data.length > 0) {
+            setPosts([data[data.length - 1]]); // Establece el estado con un arreglo que contiene solo el último post
+          } else {
+            setPosts([]); // Si no hay posts, establece el estado a un arreglo vacío
+          }
+        })
         .catch((error) => console.error(error));
-    },[])
+    }, []);
     
     if (!posts.length) {
         // Verifica si posts está definido y tiene elementos
@@ -63,16 +70,19 @@ export default function MainPost() {
               >
                 {Math.floor(Math.random() * 100)} Reactions
               </span>
-              <div className="flex items-center justify-center ml-4">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  role="img"
-                  aria-labelledby="acbgv9ug60wv1l65zdh85sopp7r3m6yg"
-                >
-                  <path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path>
-                </svg>
+              <div
+                className="flex items-center justify-center ml-4"
+              >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    role="img"
+                    aria-labelledby="acbgv9ug60wv1l65zdh85sopp7r3m6yg"
+                    style={{ cursor: "pointer" }} // Opcional: Cambiar el cursor a pointer para indicar que es clickeable
+                  >
+                    <path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path>
+                  </svg>
                 <span className="text-sm font-medium">
                   {Math.floor(Math.random() * 100)} Comments
                 </span>
